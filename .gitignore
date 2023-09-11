@@ -1,3 +1,6 @@
+#node_modules of main folder
 /node_modules
+#node_modules present in frontend part
 /frontend/node_modules
+#ignore frontend's .gitignore file
 /frontend/.gitignore
