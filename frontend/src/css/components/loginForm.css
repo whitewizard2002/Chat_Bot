@@ -1,0 +1,20 @@
+.form{
+    border-radius:10px;
+    background-color:darkslategrey;
+    opacity:0.5;
+    color:white;
+    position:relative;
+}
+
+form{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.username,.password{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}

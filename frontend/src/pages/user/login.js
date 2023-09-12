@@ -1,8 +1,9 @@
+import LoginForm from "../../components/LoginForm";
 
 function LoginPage() {
-    return <>
-        <h1>Hello Login Page!</h1>
-    </>
+    return <div class="background">
+        <LoginForm/>
+    </div>
 }
 
 export default LoginPage;
