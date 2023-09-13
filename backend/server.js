@@ -12,6 +12,14 @@ const url=process.env.URL;
 
 //check the update is applicable
 app.use(express.json());
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    next();
+    });
 app.listen(port,()=>{
     console.log("Server is up and listening at port: "+port);
     
@@ -30,6 +38,11 @@ app.listen(port,()=>{
 app.get("/",(req,res)=>{
     console.log("get / called");
 
+})
+
+app.post("/Login",(req,res)=>{
+    console.log("post method called for login");
+    console.log("Username:",req.body);
 })
 
 // var mongoClient=require('mongodb').MongoClient;
