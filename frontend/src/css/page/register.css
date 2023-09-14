@@ -1,0 +1,14 @@
+@media screen and (max-width:475px){
+    .background{
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
+
+.background{
+    background-color: black;
+    position: center;
+    background-size: cover;
+    width: 100vw;
+    height:100vh;
+}

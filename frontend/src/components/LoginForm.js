@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import '../css/components/loginForm.css';
 import axios from 'axios';
 function LoginForm(){
@@ -23,7 +23,7 @@ function LoginForm(){
 
     }
 
-    useEffect(()=>{handleSubmit();},[]);
+    // useEffect(()=>{handleSubmit();},[]);
 
     return <div class="form">
             <form onSubmit={formSubmit}>
@@ -31,6 +31,7 @@ function LoginForm(){
                 <input type="text" name="username" required value={inputs.username} onChange={handleChange} placeholder='Username'/><br/>
                 <input type="password" name="password" required value={inputs.password} onChange={handleChange} placeholder='Password'/><br/>
                 <center><input type="submit"/></center>
+                Don't have an account?<a href="#to register">Register Here!</a>
             </form>
         </div>
 }

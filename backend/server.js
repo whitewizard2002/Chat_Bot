@@ -45,4 +45,8 @@ app.post("/Login",(req,res)=>{
     console.log("Username:",req.body);
 })
 
+app.post("/Register",(req,res)=>{
+    console.log("post method for register called");
+    console.log("Data:",req.body);
+})
 // var mongoClient=require('mongodb').MongoClient;
