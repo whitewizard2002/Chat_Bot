@@ -1,8 +1,8 @@
 //importing the modules
 require('dotenv').config();
-var mongoose=require('mongoose');
 const express=require('express');
-
+var db=require('./connect/dbconnect');
+var user=require('./functionality/loginUser');
 //hosting set up
 const app=express();
 const port=process.env.PORT || 3001;
@@ -19,34 +19,24 @@ app.use(function(req, res, next) {
       'Origin, X-Requested-With, Content-Type, Accept'
     );
     next();
-    });
+});
+
 app.listen(port,()=>{
     console.log("Server is up and listening at port: "+port);
-    
-    //connecting to mongodb database
-    mongoose.connect("mongodb+srv://aaditbaldha2002:aadit1234@cluster0.39r6iis.mongodb.net/AIBased")
-    .then(()=>{console.log("Database connected");})
-    .catch((err)=>{console.log("Database connection failed!!");});
+    db.connectToDb();
+});
 
-    // mongoose.connect(url)
-    // .then(()=>{console.log("Database connected");})
-    // .catch((err)=>{console.log("Database connection failed!!");});
-
-})
-
-//methods
+//response-methods
 app.get("/",(req,res)=>{
-    console.log("get / called");
+    console.log("get method of login page called");
+});
 
-})
-
-app.post("/Login",(req,res)=>{
+app.post("/",(req,res)=>{
     console.log("post method called for login");
-    console.log("Username:",req.body);
-})
+    user.loginUser(req);
+});
 
 app.post("/Register",(req,res)=>{
     console.log("post method for register called");
     console.log("Data:",req.body);
 })
-// var mongoClient=require('mongodb').MongoClient;
