@@ -1,7 +1,7 @@
 
 function ChatArea(){
     return <div className="background">
-
+    
     </div>
 }
 

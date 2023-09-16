@@ -2,13 +2,12 @@
 require('dotenv').config();
 const express=require('express');
 var db=require('./connect/dbconnect');
-var user=require('./functionality/user/userProp');
+
 //hosting set up
 const app=express();
 const port=process.env.PORT || 3001;
 const url=process.env.URL;
 
-//Models setup
 
 //check the update is applicable
 app.use(express.json());
@@ -26,17 +25,10 @@ app.listen(port,()=>{
     db.connectToDb();
 });
 
-//response-methods
-app.get("/",(req,res)=>{
-    console.log("get method of login page called");
-});
+//router-intitialization
+// const userRouter=require("./router/userRouter.route");
+const tempRouter=require("./router/tempRouter");
 
-app.post("/",(req,res)=>{
-    console.log("post method called for login");
-    user.login(req);
-});
+//router-list
+app.use('/',tempRouter);
 
-app.post("/Register",(req,res)=>{
-    console.log("post method for register called");
-    user.registerUser(req);
-})

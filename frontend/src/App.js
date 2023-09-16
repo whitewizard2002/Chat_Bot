@@ -9,15 +9,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/'>
-          <Route path="Login" index element={<LoginPage/>}/>
-          <Route path='Register' element={<RegisterPage/>}/>
-          <Route path='Chat' element={<ChatPage/>}/>
-          <Route path='Admin' element={<AdminPage/>}/>
-        </Route>
+        <Route path='/' element={<LoginPage/>}/>
+        <Route path='Register' element={<RegisterPage/>}/>
+        <Route path='User/Chat' element={<ChatPage/>}/>
+        <Route path='Admin' element={<AdminPage/>}/>
+        {/* </Route> */}
       </Routes>
     </BrowserRouter>
-    );
+  );
 }
 
 export default App;
