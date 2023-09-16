@@ -2,7 +2,7 @@
 require('dotenv').config();
 const express=require('express');
 var db=require('./connect/dbconnect');
-var user=require('./functionality/loginUser');
+var user=require('./functionality/user/userProp');
 //hosting set up
 const app=express();
 const port=process.env.PORT || 3001;
@@ -33,10 +33,10 @@ app.get("/",(req,res)=>{
 
 app.post("/",(req,res)=>{
     console.log("post method called for login");
-    user.loginUser(req);
+    user.login(req);
 });
 
 app.post("/Register",(req,res)=>{
     console.log("post method for register called");
-    console.log("Data:",req.body);
+    user.registerUser(req);
 })

@@ -14,15 +14,27 @@ function RegisterForm(){
     }
 
     async function handleSubmit(){
-        const data= await axios.post("http://localhost:3001/Register",inputs);
+        let isOk=true;
+        if(inputs.password!==inputs.confirm_password)
+        {
+            window.alert("Password and Confirm Password is not same");
+            isOk=false;
+        }
+
+        //if statement for checking if a user with same email address exist or not
+        
+        //else register the given data of user to db
+        let data;
+        if(isOk)
+             data= await axios.post("http://localhost:3001/Register",inputs);
+        else
+            console.log("Data cannot be registered");
     };
 
     const formSubmit=()=>{
         handleSubmit();
     };
     
-    // useEffect(()=>{handleSubmit();},[]);
-
     return <div className="form">
         <form onSubmit={formSubmit}>
         <div className="row mx-auto">

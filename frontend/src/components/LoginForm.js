@@ -7,7 +7,7 @@ function LoginForm(){
     // [password,setPassword]=useState("");
 
     let [inputs,setInputs]=useState({username:'',password:''});
-
+    let navigate=useNavigate();
     const handleChange=(event)=>{
         const name=event.target.name;
         const value=event.target.value;
@@ -20,11 +20,14 @@ function LoginForm(){
     };
 
     async function handleSubmit(){
-        const data=await axios.post('http://localhost:3001/Login',inputs);
-
+        const data=await axios.post('http://localhost:3001/',inputs);
+        
     }
-
     
+    const redirect=()=>{
+        let path=`/Register`;
+        navigate(path);
+    }
 
     // useEffect(()=>{handleSubmit();},[]);
 
@@ -34,7 +37,7 @@ function LoginForm(){
                 <input type="text" name="username" required value={inputs.username} onChange={handleChange} placeholder='Username'/><br/>
                 <input type="password" name="password" required value={inputs.password} onChange={handleChange} placeholder='Password'/><br/>
                 <center><input type="submit"/></center>
-                Don't have an account?<a onClick={useNavigate("Register")}>Register Here!</a>
+                Don't have an account?<a onClick={redirect}>Register Here!</a>
             </form>
         </div>
 }
