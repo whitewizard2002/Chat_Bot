@@ -9,10 +9,10 @@ var userSchema=new Schema({
     last_name:{
         type:String
     },
-    email_address:{
+    user_name:{
         type:String
     },
-    user_name:{
+    email_address:{
         type:String
     },
     password:{

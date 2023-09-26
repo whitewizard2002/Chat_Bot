@@ -22,7 +22,7 @@ function LoginForm(){
 
     async function handleSubmit(){
         const data=await axios.post('http://localhost:3001/',inputs);
-        console.log(data);
+        
     }
     
     const redirect=()=>{

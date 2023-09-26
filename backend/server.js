@@ -1,10 +1,13 @@
 //importing the modules
 require('dotenv').config();
 const express=require('express');
+const cors=require('cors');
 var db=require('./connect/dbconnect');
 
 //hosting set up
 const app=express();
+app.use(cors());
+app.options("",cors());
 const port=process.env.PORT || 3001;
 const url=process.env.URL;
 
@@ -26,9 +29,9 @@ app.listen(port,()=>{
 });
 
 //router-intitialization
-// const userRouter=require("./router/userRouter.route");
 const tempRouter=require("./router/tempRouter");
 
 //router-list
 app.use('/',tempRouter);
+
 

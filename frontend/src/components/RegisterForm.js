@@ -29,7 +29,15 @@ function RegisterForm(){
         let data;
         if(isOk)
         {
-            data = await axios.post("http://localhost:3001/Register",inputs);
+            // console.log("Is Ok");
+            data = await axios.post("http://localhost:3001/Register",inputs)
+            .then(()=>{
+                window.alert("Sent successfully");
+            })
+            .catch(()=>{
+                window.alert("error occured");
+            });
+            console.log(data.user);
         }
 
         else
